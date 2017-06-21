@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource name="jdbc/PostgresDS"
+        url="jdbc:postgresql://localhost:5433/ipass"
+        driverClassName="org.postgresql.Driver" 
+        auth="Container" 
+        type="javax.sql.DataSource"
+        username="postgres"
+        password="8fpd6y4h" />
+</Context>
+
