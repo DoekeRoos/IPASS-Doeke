@@ -2,29 +2,73 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="javascript/kamer_funties.js"></script>
+
+
+
 <title>Hoofdscherm</title>
 </head>
+
 <body>
-	<div id="frame">
-		<div id="kamerlijst">
-			<label for="lijst">Kamerlijst: </label>
-		</div>
-		
-		<div id="kamerinfo">
-			<label for="kamer">Kamernummer: </label><br>
-			<input type="number"><br>
-			<label for="aanpassen">Aanpassen: </label><br>
-			<input type="text"><br>
-			<label for="nummer">Aanpassen naar: </label><br>
-			<input type="number"><br>
-			<input type="submit" value="Aanpassen">
-		</div><br>
-		
-		<div id="rekening">
-			<label for="afrekenen">Kamernummer: </label><br>
-			<input type="number"><br>
-			<button type="button">Rekening</button>	
-		</div>
+
+	<div>
+		<p>Aanpassysteem NH COLLECTION HOTEL DOELEN</p>
+		<p></p>
 	</div>
+	<div class="container">
+
+		<input class="form-control" placeholder="Voer kamernummer in"
+			type="text" id="id" />
+		<button type="button" id="button">Show kamers</button>
+
+		<table id="tabel2">
+		</table>
+		<div id="kamer_unknown"></div>
+	</div>
+
+	<div>
+		<p></p>
+	</div>
+
+	<form id="deleteKamerForm">
+		<input type="text" placeholder="kamer nummer" id="kamerId"
+			name="kamerId" /> <input type="button" id="delete" value="Delete!" />
+	</form>
+
+	<div id="response"></div>
+
+	<p></p>
+
+	<form id="wijzigKamerForm">
+		Kamernummer:<br> <input type="text"
+			placeholder="Huidig kamernummer" id="huidigKamernr"><br>
+		<p></p>
+		<input type="text" placeholder="Kamernummer" id="wijzigKamernr"><br>
+		<input type="text" placeholder="Prijs van de kamer" id="wijzigPrijs"><br>
+		<input type="text" placeholder="Aantal nachten" id="wijzigAantaln"><br>
+		<input type="text" placeholder="Ontbijt" id="wijzigOntbijt"><br>
+		<input type="text" placeholder="Zwembad" id="wijzigZwembad"><br>
+		<input type="button" id="wijzig" value="Kamer aanpassen">
+	</form>
+	
+	<p></p>
+
+	<form id="nieuwKamerForm">
+		Voeg kamer toe:<br>
+		<input type="text" placeholder="kamernummer" id="nieuwKamernr"><br>
+		<input type="text" placeholder="prijskamer" id="nieuwPrijs"><br>
+		<input type="text" placeholder="aantalnachten" id="nieuwAantal"><br>
+		<input type="text" placeholder ="ontbijt" id="nieuwOntbijt"><br>
+		<input type="text" placeholder ="zwembad" id="nieuwZwembad"><br>
+		<input type="text" placeholder ="kamer_gast_nr" id="nieuwGast"><br>
+		<input type="button" id="nieuw" value="Voeg kamer toe">
+	</form>
+	<script>
+		
+	</script>
+</body>
 </body>
 </html>
