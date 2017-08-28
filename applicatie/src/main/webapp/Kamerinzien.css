@@ -1,0 +1,26 @@
+.container{
+	margin: 20px auto;
+	width: 320px;
+	color: white;
+}
+
+input{
+	padding: 10px;
+	font-size: inherit;
+	margin: 5px;
+}
+
+input[id="huidigKamernr"]{
+	margin: 5px;
+	margin-bottom: 15px;
+}
+
+#tabel2{
+	width: 50%;
+	margin-top: 40px;
+}
+
+#header{
+	width: 50%;
+	margin-top: 40px; 
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="hoofd.css">
+<link rel="stylesheet" type="text/css" href="Kamertoevoegen.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="javascript/kamer_funties.js"></script>
+<script type="text/javascript" src="javascript/homepagina.js"></script>
+
+<title>Kamer-inzien</title>
+</head>
+
+<body>
+	<div class="header">
+		<div class="nav">
+			<ul>
+				<li><a href="http://localhost:5430/applicatie/index.html">Beginpagina</a></li>
+				<li><a href="http://localhost:5430/applicatie/Kamerinzien.html">Inzien</a></li>
+				<li><a
+					href="http://localhost:5430/applicatie/Kamerverwijderen.html">Verwijderen</a></li>
+				<li><a
+					href="http://localhost:5430/applicatie/Kamerupdaten.html">Aanpassen</a></li>
+				<li><a
+					href="http://localhost:5430/applicatie/Kamertoevoegen.html">Toevoegen</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<form id="nieuwGastForm">
+		Voeg gast toe:<br>
+		<input type="text" placeholder="Gastnummer" id="nieuwPersonid"><br>
+		<input type="text" placeholder="Voornaam" id="nieuwVoornaam"><br>
+		<input type="text" placeholder="Achternaam" id="nieuwAchternaam"><br>
+		<button type="button" id="gasttoevoegen">Voeg gast toe</button>
+	</form>
+	
+	<form id="nieuwKamerForm">
+		Voeg kamer toe:<br> 
+		<input type="text" placeholder="kamernummer"id="nieuwKamernr"><br> 
+		<input type="text" placeholder="prijskamer" id="nieuwPrijs"><br> 
+		<input type="text" placeholder="aantalnachten" id="nieuwAantal"><br>
+		<input type="text" placeholder="ontbijt" id="nieuwOntbijt"><br>
+		<input type="text" placeholder="zwembad" id="nieuwZwembad"><br>
+		<input type="text" placeholder="kamer_gast_nr" id="nieuwGast"><br>
+		<button type="button" id="toevoegen">Voeg kamer toe</button>
+	</form>
+	
+
+	
+	<div id="responseadd"></div>
+
+</body>
+</html>

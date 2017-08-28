@@ -8,14 +8,24 @@ public class Service {
 	private List<Kamer> allKamers;
 	private KamerDAO kdao;
 	
+	private List<Gast> allGasten;
+	private GastDAO gdao;
+	
 	//Deze functie zorgt er voor dat de klasse "KamerDAO" kan worden aangeroepen
 	public Service(){
 		kdao = new KamerDAOImpl();
 		allKamers = kdao.GetAllKamers();
+		
+		gdao = new GastDAOImpl();
+		allGasten = gdao.GetAllGasten();
 	}
 	
 	public List<Kamer> getAllKamers(){
 		return allKamers;
+	}
+	
+	public List<Gast> getAllGasten(){
+		return allGasten;
 	}
 	
 	public Kamer getKamerByID(String id) {
@@ -43,6 +53,11 @@ public class Service {
 	//Zorg ervoor dat 
 	public boolean newKamer(Kamer k){
 		kdao.AddKamer(k);
+		return true;
+	}
+	
+	public boolean newGast(Gast g){
+		gdao.AddGast(g);
 		return true;
 	}
 }

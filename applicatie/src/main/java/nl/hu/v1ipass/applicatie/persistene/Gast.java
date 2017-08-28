@@ -6,9 +6,9 @@ public class Gast {
 	private String achternaam;
 	
 	public Gast (int person_id, String voornaam, String achternaam){
-		this.person_id = person_id;
-		this.voornaam = voornaam;
-		this.achternaam = achternaam;
+		setPerson_id(person_id);
+		setVoornaam(voornaam);
+		setAchternaam(achternaam);
 	}
 	
 	public int getPerson_id(){
@@ -22,5 +22,9 @@ public class Gast {
 	public String getAchternaam(){
 		return achternaam;
 	}
+	
+	public void setPerson_id(int id) { this.person_id = id; }
+	public void setVoornaam(String vrnm) { this.voornaam = vrnm; }
+	public void setAchternaam(String achtnm) {this.achternaam = achtnm; }
 }
 

@@ -17,6 +17,14 @@ public class Kamer {
 		setKamer_gast_nr(gastnr);
 	}
 	
+	public Kamer(int id, int pr, int aantal, int ontb, int zwemb){
+		setKamer_id(id);
+		setPrijs_pn(pr);
+		setAantal_n(aantal);
+		setOntbijt(ontb);
+		setZwembad(zwemb);
+	}
+	
 	public int getKamer_id(){ return kamer_id; }
 	public void setKamer_id(int id) { this.kamer_id = id; }
 	

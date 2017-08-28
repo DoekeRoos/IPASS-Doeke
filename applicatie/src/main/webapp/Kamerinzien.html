@@ -3,14 +3,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="hoofd.css">
+<link rel="stylesheet" type="text/css" href="Kamerinzien.css">
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="javascript/kamer_funties.js"></script>
 <script type="text/javascript" src="javascript/homepagina.js"></script>
-<script type="text/javascript" src="javascript/gast_functies.js"></script>
 
-
-
-<title>Hoofdscherm</title>
+<title>Kamer-inzien</title>
 </head>
 
 <body>
@@ -28,26 +28,26 @@
 			</ul>
 		</div>
 	</div>
-	
+
+
 	<div class="container">
-		<table align="center" id="table1">
-			<thead>
-				<tr>
-					<td id="header" colspan="3"><h1>Gasten in het hotel:</h1></td>
-				</tr>
-				<tr>
-					<th>Gastnummer</th>
-					<th>Voornaam</th>
-					<th>Achternaam</th>
-				</tr>
-			</thead>
-			<tbody>
-			
-			</tbody>
+	
+		<table id="tabelheader">
+			<tr>
+				<td id="header"><h3>Vraag de kamergegevens op:</h3></td>
+			</tr>
 		</table>
+		<input class="form-control" placeholder="Voer kamernummer in"
+			type="text" id="id" />
+		<button type="button" id="button">Toon kamer</button>
+
+		<table id="tabel2">
+		<tr>
+			<td id="header" colspan="7">Kamergegevens:</td>
+		</tr>
+		</table>
+		<div id="responseread"></div>
 	</div>
 
-
 </body>
-
 </html>

@@ -17,14 +17,17 @@ $(document).ready(function(){
 				
 				if(input == kamer_id){
 					$('#tabel2').append(
+							$('<tr></tr>').append(
+									$('<td id="header" colspan="7"></td>').text("")))
+					$('#tabel2').append(
 						$('<tr></tr>').append(
-								$('<td></td>').text("Kamer nummer"),
-								$('<td></td>').text("Prijs per nacht"),
-								$('<td></td>').text("Aantal nachten"),
-								$('<td></td>').text("Ontbijt"),
-								$('<td></td>').text("Zwembad"),
-								$('<td></td>').text("Gast nummer"),
-								$('<td></td>').text("Totaal bedrag")))
+								$('<th></th>').text("Kamer nummer"),
+								$('<th></th>').text("Prijs per nacht"),
+								$('<th></th>').text("Aantal nachten"),
+								$('<th></th>').text("Ontbijt"),
+								$('<th></th>').text("Zwembad"),
+								$('<th></th>').text("Gast nummer"),
+								$('<th></th>').text("Totaal bedrag")))
 					$('#tabel2').append(
 						$('<tr></tr>').append(
 								$('<td></td>').text(input),
@@ -48,35 +51,47 @@ $(document).ready(function(){
 		$.ajax(uri, {
 			method: "delete",
 			succes: function(response) {
-				$("#response").text("Kamer is afgerekend");
+				$("#responseverwijderen").text("Kamer is afgerekend");
+				console.log("kamer is verwijderd");
 			},
 			error: function(response){
-				$("#response").text("Kamer is niet in gebruik");
+				$("#responseverwijderen").text("Kamer niet afrekenen");
 			}
 		});
 	});
 	
-	$("#wijzig").click(function(){
-		var form_data = $("#wijzigKamernr").val() + ',' +
-		$("#wijzigPrijs").val() + ',' +
-		$("#wijzigAantaln").val() + ',' +
-		$("#wijzigOntbijt").val() + ',' +
-		$("#wijzigZwembad").val();
-		console.log(form_data);
+    $("#wijzig").click(function(response) {
+
+        var data = { "kamer_id": parseInt($("#wijzigKamernr").val()), "prijs_pn": parseInt($("#wijzigPrijs").val()), "aantal_n": parseInt($("#wijzigAantaln").val()), "ontbijt": parseInt($("#wijzigOntbijt").val())
+        		, "zwembad": parseInt($("#wijzigZwembad").val())}
+        
+        console.log(JSON.stringify(data));
+        
+	     $.post("/applicatie/restservices/kamer/update", data, function(response) {
+	                  $("#responseaangepast").text("Kamer is aangepast");
+	     });
+    });
+
+	$("#gasttoevoegen").click(function(){
+		var form_data2 = $("#nieuwPersonid").val() + ',' +
+		$("#nieuwVoornaam").val() + ',' +
+		$("#nieuwAchternaam").val();
+		console.log(form_data2);
 		
-		var uri = "restservices/kamer/update/" + $("#huidigKamernr").val();
+		var uri = "restservices/kamer/new";
 		$.ajax(uri, {
-			method: "put",
-			data: form_data,
+			method: "post",
+			data: form_data2,
 			dataType: 'application/json',
-			contenctType: 'application/json',
+			contentType: 'application/json',
 			succes: function(response){
-				console.log("kamer is gewijzigd")
+				alert("Kamer toegevoegd");
 			}
 		});
 	});
+ 
 	
-	$("#nieuw").click(function () {
+	$("#toevoegen").click(function(){
 		var form_data = $("#nieuwKamernr").val() + ',' +
 		$("#nieuwPrijs").val() + ',' +
 		$("#nieuwAantal").val() + ',' +
@@ -91,8 +106,11 @@ $(document).ready(function(){
 			data: form_data,
 			dataType: 'application/json',
 			contentType: 'application/json',
-			succes: function(result){
-				alert("Klant is toegevoegd!");
+			succes: function(response){
+				$("#responseadd").text("kamer is toegevoegd");
+			},
+			error: function(response){
+				$("#responseadd").text("kamer is niet toegevoegd");
 			}
 		});
 	});

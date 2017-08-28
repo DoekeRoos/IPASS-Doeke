@@ -52,8 +52,8 @@ public class KamerDAOImpl implements KamerDAO{
 		try {
 			sqlconn.setTable("kamer");
 			if (sqlconn.Update(String.format(
-					"UPDATE \"%s\" SET kamer_id= %d, prijs_pn = '%s', aantal_n = '%s', ontbijt = '%s', zwembad = '%s', WHERE kamer_id=%d",
-					sqlconn.getTable(), k.getKamer_id(), k.getPrijs_pn(), k.getAantal_n(), k.getOntbijt(), k.getZwembad()))) {
+					"UPDATE \"%s\" SET kamer_id= %d, prijs_pn = '%s', aantal_n = '%s', ontbijt = '%s', zwembad = '%s' WHERE kamer_id=%d",
+					sqlconn.getTable(), k.getKamer_id(), k.getPrijs_pn(), k.getAantal_n(), k.getOntbijt(), k.getZwembad(), k.getKamer_id()))) {
 				return true;
 			}
 

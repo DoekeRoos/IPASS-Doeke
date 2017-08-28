@@ -1,0 +1,44 @@
+body{	
+	background-image: url("http://image3.mouthshut.com/images/Restaurant/Photo/-13201_54636.jpg");
+	margin: 0;
+	paddin: 0;
+	font-family: 'Arial', serif;
+}
+
+button{
+	padding: 10px 15px 10px 15px;
+	margin: 5px 5px 5px 5px;
+	border-style: double;
+}
+
+.nav{
+  height: 60px;
+  background-color: #8A2BE2;
+  list-style: none;
+  text-align: center;
+  font-family: 'Arial', serif;
+  font-weight: black;
+}
+
+.nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li{
+  display: inline-block;
+  padding: 21px 25px 21px 25px;
+  
+}
+
+.nav ul li a{
+  text-decoration: none;
+  color: white;
+
+}
+
+.nav ul li a:hover{
+  color: black;
+
+  border-color: none;
+}

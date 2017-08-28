@@ -4,6 +4,7 @@ import javax.json.Json;
 import javax.json.JsonObjectBuilder;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -58,27 +59,28 @@ public class KamerResource {
 	}
 
 	//PUT methode om een kamer te kunnen aanpassen
-	@PUT
-	@Consumes("application/json")
-	@Path("/update/{data}")
-	public Response wijzigKamer(String data){
+	@POST
+	@Path("/update")
+	public Response wijzigKamer(@FormParam("kamer_id") int kamerid,
+			@FormParam("prijs_pn") int prijspn,
+			@FormParam("aantal_n") int aantaln,
+			@FormParam("ontbijt") int ontbijt,
+			@FormParam("zwembad") int zwembad){
 		
-		System.out.println(data);
-		String[] allParams = data.split(",");
+		Kamer newKamer = new Kamer(kamerid, prijspn, aantaln, ontbijt, zwembad);
+		
 	
-		System.out.println("hoi " + allParams[0]);
-		Kamer k = s.getKamerByID(allParams[0]);
-		k.setKamer_id(Integer.parseInt(allParams[1]));
-		k.setPrijs_pn(Integer.parseInt(allParams[2]));
-		k.setAantal_n(Integer.parseInt(allParams[3]));
-		k.setOntbijt(Integer.parseInt(allParams[4]));
-		k.setZwembad(Integer.parseInt(allParams[5]));
 		
-		boolean succes = s.updateKamer(k);
-		System.out.println(succes);
-		return Response.status(200).entity(succes).build();
+		boolean succes = s.updateKamer(newKamer);
 		
+		if(succes){
+			return Response.status(200).entity(succes).build();
+		}else{
+			return Response.status(400).entity(succes).build();
+		}
+
 	}
+	
 	
 	//POST methode om een kamer toe te kunnen voegen aan de database
 	@POST
